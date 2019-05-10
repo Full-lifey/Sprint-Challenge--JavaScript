@@ -6,19 +6,21 @@
   * The last parameter accepts a callback 
   * In the body of the function return the callback with the two parameters that you created
 */
-
+const consume = (param1, param2, cb) => cb(param1, param2);
 
 /* Step 2: Create several functions to callback with consume();
   * Create a function named add that returns the sum of two numbers
   * Create a function named multiply that returns the product of two numbers 
   * Create a function named greeting that accepts a first and last name and returns "Hello first-name last-name, nice to meet you!"
 */
-
+const add = (x, y) => x+y;
+const multiply = (x, y) => x*y;
+const greeting = (firstName, lastName) => `Hello ${firstName} ${lastName}, nice to meet you!`
 
 /* Step 3: Check your work by un-commenting the following calls to consume(): */
-// consume(2,2,add); // 4
-// consume(10,16,multiply); // 160
-// consume("Mary","Poppins", greeting); // Hello Mary Poppins, nice to meet you!
+console.log(consume(2,2,add)); // 4
+console.log(consume(10,16,multiply)); // 160
+console.log(consume("Mary","Poppins", greeting)); // Hello Mary Poppins, nice to meet you!
 
 
 // ==== Closures ==== 
@@ -26,8 +28,10 @@
 // Explain in your own words why `nestedfunction()` can access the variable `internal`.
 
 // Explanation: 
-
-
+/* - nestedfunction can access the variable 'internal' because functional scopes have access to the scopes 'higher' than themselves
+ but not scopes that are 'inside' or 'lower' than their own.
+I.E. nestedFunction has access to the scope of myFunction, but myFunction does NOT have access to the nestedFunction scope.
+*/
 const external = "I'm outside the function";
 
 function myFunction() {
